@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Portfolio | 이수진</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #f7f7f5;
+      --white: #ffffff;
+      --black: #111111;
+      --gray-1: #555;
+      --gray-2: #888;
+      --gray-3: #d9d9d5;
+      --line: #e5e5e1;
+      --accent: #2948ff;
+      --accent-light: #eef1ff;
+      --serif: Georgia, "Times New Roman", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--black);
+      font-family: "Inter", "Noto Sans KR", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* =========================
+       NAV
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 72px;
+      padding: 0 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(247, 247, 245, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      padding: 160px 6vw 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-label {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      max-width: 1050px;
+      font-size: clamp(52px, 8vw, 118px);
+      line-height: .98;
+      letter-spacing: -.07em;
+      font-weight: 800;
+      margin-bottom: 42px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      max-width: 660px;
+      font-size: 19px;
+      line-height: 1.75;
+      color: #555;
+      word-break: keep-all;
+    }
+
+    .hero-bottom {
+      margin-top: 90px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 45px;
+    }
+
+    .meta-item small {
+      display: block;
+      color: #999;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .meta-item strong {
+      font-size: 14px;
+    }
+
+    .scroll {
+      font-size: 12px;
+      color: #888;
+      animation: bounce 1.8s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+    }
+
+    /* =========================
+       COMMON
+    ========================= */
+
+    section {
+      padding: 130px 6vw;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 25% 75%;
+      border-top: 1px solid var(--black);
+      padding-top: 20px;
+      margin-bottom: 70px;
+    }
+
+    .section-number {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .section-title {
+      font-size: clamp(38px, 5vw, 72px);
+      line-height: 1;
+      letter-spacing: -.055em;
+      font-weight: 800;
+    }
+
+    .section-title em {
+      font-family: var(--serif);
+      font-weight: 400;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9vw;
+      align-items: start;
+    }
+
+    .about-lead {
+      font-size: clamp(28px, 3.3vw, 48px);
+      line-height: 1.2;
+      letter-spacing: -.045em;
+      font-weight: 600;
+    }
+
+    .about-lead span {
+      color: var(--accent);
+    }
+
+    .about-text {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+
+    .about-text p + p {
+      margin-top: 20px;
+    }
+
+    .principles {
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .principle {
+      padding: 30px 25px 30px 0;
+      border-right: 1px solid var(--line);
+    }
+
+    .principle:not(:first-child) {
+      padding-left: 25px;
+    }
+
+    .principle:last-child {
+      border-right: none;
+    }
+
+    .principle-number {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .principle h3 {
+      font-size: 22px;
+      letter-spacing: -.04em;
+      margin-bottom: 12px;
+    }
+
+    .principle p {
+      color: #777;
+      font-size: 14px;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    /* =========================
+       EXPERIENCE
+    ========================= */
+
+    .experience-list {
+      border-top: 1px solid var(--black);
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 18% 25% 1fr;
+      gap: 30px;
+      padding: 38px 0;
+      border-bottom: 1px solid var(--line);
+      transition: background .25s ease, padding .25s ease;
+    }
+
+    .experience-item:hover {
+      background: #fff;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .experience-date {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .experience-company {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -.035em;
+    }
+
+    .experience-role {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    .experience-content h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+      letter-spacing: -.03em;
+    }
+
+    .experience-content p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .tag-wrap {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .tag {
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      border-radius: 100px;
+      font-size: 11px;
+      color: #666;
+      background: #fafafa;
+    }
+
+    /* =========================
+       HR PROJECT
+    ========================= */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project {
+      background: var(--white);
+      padding: 40px;
+      min-height: 330px;
+      position: relative;
+      border: 1px solid transparent;
+      transition: transform .25s ease, border .25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: var(--black);
+    }
+
+    .project-number {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 55px;
+    }
+
+    .project h3 {
+      font-size: 28px;
+      letter-spacing: -.05em;
+      margin-bottom: 13px;
+    }
+
+    .project p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 500px;
+      word-break: keep-all;
+    }
+
+    .project-keyword {
+      position: absolute;
+      bottom: 35px;
+      left: 40px;
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10vw;
+    }
+
+    .skill-intro {
+      font-size: 25px;
+      line-height: 1.4;
+      letter-spacing: -.04em;
+      font-weight: 600;
+      word-break: keep-all;
+    }
+
+    .skill-intro span {
+      color: var(--accent);
+    }
+
+    .skill-list {
+      border-top: 1px solid var(--black);
+    }
+
+    .skill {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .skill-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .skill-score {
+      color: #888;
+      font-size: 11px;
+    }
+
+    .bar {
+      height: 3px;
+      background: #ddd;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--black);
+      transition: width 1.2s cubic-bezier(.22,1,.36,1);
+    }
+
+    /* =========================
+       VALUES
+    ========================= */
+
+    .values {
+      background: var(--black);
+      color: white;
+    }
+
+    .values .section-header {
+      border-color: #444;
+    }
+
+    .values .section-number {
+      color: #888;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #333;
+    }
+
+    .value {
+      background: var(--black);
+      padding: 45px 35px;
+      min-height: 300px;
+    }
+
+    .value-num {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 80px;
+    }
+
+    .value h3 {
+      font-size: 30px;
+      letter-spacing: -.05em;
+      margin-bottom: 14px;
+    }
+
+    .value h3 span {
+      color: #6577ff;
+    }
+
+    .value p {
+      color: #999;
+      font-size: 14px;
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    /* =========================
+       EDUCATION
+    ========================= */
+
+    .education {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .edu-card {
+      background: white;
+      padding: 35px;
+      border-top: 3px solid var(--black);
+    }
+
+    .edu-year {
+      color: #888;
+      font-size: 12px;
+      margin-bottom: 25px;
+    }
+
+    .edu-card h3 {
+      font-size: 23px;
+      margin-bottom: 7px;
+      letter-spacing: -.04em;
+    }
+
+    .edu-card p {
+      color: #666;
+      font-size: 13px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--accent);
+      color: white;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+      opacity: .7;
+    }
+
+    .contact h2 {
+      max-width: 950px;
+      font-size: clamp(55px, 8vw, 120px);
+      line-height: .95;
+      letter-spacing: -.07em;
+      margin-bottom: 55px;
+    }
+
+    .contact h2 em {
+      font-family: var(--serif);
+      font-weight: 400;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 50px;
+      font-size: 14px;
+    }
+
+    .contact-link {
+      border-bottom: 1px solid rgba(255,255,255,.5);
+      padding-bottom: 5px;
+      transition: border .2s ease;
+    }
+
+    .contact-link:hover {
+      border-color: white;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: var(--accent);
+      color: rgba(255,255,255,.6);
+      padding: 30px 6vw 40px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,.2);
+    }
+
+    /* =========================
+       FADE ANIMATION
+    ========================= */
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      nav {
+        height: 62px;
+        padding: 0 5vw;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 62px;
+        left: 0;
+        width: 100%;
+        padding: 25px 5vw;
+        flex-direction: column;
+        gap: 18px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding: 130px 5vw 70px;
+      }
+
+      .hero h1 {
+        font-size: clamp(48px, 15vw, 80px);
+      }
+
+      .hero-sub {
+        font-size: 16px;
+      }
+
+      .hero-bottom {
+        margin-top: 60px;
+      }
+
+      .hero-meta {
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      section {
+        padding: 90px 5vw;
+      }
+
+      .section-header {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 50px;
+      }
+
+      .section-title {
+        font-size: 48px;
+      }
+
+      .about-grid,
+      .skills-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .principle {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding: 25px 0 !important;
+      }
+
+      .principle:last-child {
+        border-bottom: none;
+      }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .projects,
+      .education {
+        grid-template-columns: 1fr;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value {
+        min-height: 250px;
+      }
+
+      .contact {
+        min-height: 65vh;
+      }
+
+      .contact h2 {
+        font-size: clamp(50px, 15vw, 85px);
+      }
+
+      .contact-info {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#top" class="logo">SOOJIN LEE.</a>
+
+    <div class="nav-links">
+      <a href="#about">ABOUT</a>
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+
+    <button class="menu-btn" aria-label="메뉴 열기">☰</button>
+  </nav>
+
+
+  <!-- HERO -->
+  <main id="top">
+
+    <section class="hero">
+      <div class="hero-label fade-up">HR / PEOPLE / ORGANIZATION</div>
+
+      <h1 class="fade-up">
+        People make<br>
+        <span>organizations.</span>
+      </h1>
+
+      <p class="hero-sub fade-up">
+        사람을 이해하고, 조직을 관찰하며,<br>
+        더 나은 구성원 경험을 설계하는 HR 인재 이수진입니다.
+      </p>
+
+      <div class="hero-bottom fade-up">
+        <div class="hero-meta">
+          <div class="meta-item">
+            <small>Focus</small>
+            <strong>HR / People</strong>
+          </div>
+
+          <div class="meta-item">
+            <small>Strength</small>
+            <strong>Communication</strong>
+          </div>
+
+          <div class="meta-item">
+            <small>Perspective</small>
+            <strong>Global</strong>
+          </div>
+        </div>
+
+        <div class="scroll">SCROLL ↓</div>
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-header">
+        <div class="section-number">01 / ABOUT</div>
+        <h2 class="section-title">
+          I look at people,<br>
+          <em>not just positions.</em>
+        </h2>
+      </div>
+
+      <div class="about-grid fade-up">
+
+        <div class="about-lead">
+          조직의 성과는<br>
+          결국 <span>사람의 경험</span>에서<br>
+          시작된다고 생각합니다.
+        </div>
+
+        <div class="about-text">
+          <p>
+            저는 다양한 사람들과 협업하며 구성원의 입장에서
+            조직을 바라보는 경험을 쌓아왔습니다.
+          </p>
+
+          <p>
+            이화국제법학회에서 인사부장으로 활동하며
+            구성원 관리와 내부 커뮤니케이션을 경험했고,
+            수시관리조교로서 출결 및 구성원 데이터를
+            정확하게 관리했습니다.
+          </p>
+
+          <p>
+            또한 CNN과 Korea Herald에서 취재와 콘텐츠 제작을
+            경험하며 복잡한 정보를 정리하고, 서로 다른
+            이해관계를 가진 사람들과 소통하는 역량을 키웠습니다.
+          </p>
+
+          <p>
+            제가 생각하는 HR은 단순히 제도를 운영하는 일이 아니라
+            <strong>사람이 조직 안에서 더 잘 일할 수 있는 환경을
+            만드는 일</strong>입니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="principles fade-up">
+
+        <div class="principle">
+          <div class="principle-number">01</div>
+          <h3>Listen</h3>
+          <p>
+            구성원의 목소리를 먼저 듣고,
+            문제의 원인을 이해합니다.
+          </p>
+        </div>
+
+        <div class="principle">
+          <div class="principle-number">02</div>
+          <h3>Organize</h3>
+          <p>
+            흩어진 정보를 구조화하고
+            반복 가능한 방식으로 정리합니다.
+          </p>
+        </div>
+
+        <div class="principle">
+          <div class="principle-number">03</div>
+          <h3>Improve</h3>
+          <p>
+            한 번의 경험으로 끝내지 않고
+            다음 과정에 개선점을 반영합니다.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+
+      <div class="section-header">
+        <div class="section-number">02 / EXPERIENCE</div>
+        <h2 class="section-title">
+          Experiences<br>
+          <em>through a HR lens.</em>
+        </h2>
+      </div>
+
+      <div class="experience-list">
+
+        <div class="experience-item fade-up">
+          <div class="experience-date">2025</div>
+
+          <div>
+            <div class="experience-company">이화국제법학회</div>
+            <div class="experience-role">HR / 인사부장</div>
+          </div>
+
+          <div class="experience-content">
+            <h3>구성원 관리와 조직 운영</h3>
+            <p>
+              학회 구성원 관리 및 내부 운영을 담당했습니다.
+              구성원의 참여를 독려하고 조직 내 커뮤니케이션을
+              조율하며 구성원 중심의 운영 경험을 쌓았습니다.
+            </p>
+
+            <div class="tag-wrap">
+              <span class="tag">People Management</span>
+              <span class="tag">Communication</span>
+              <span class="tag">Organization</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="experience-item fade-up">
+          <div class="experience-date">2025</div>
+
+          <div>
+            <div class="experience-company">CNN Seoul Bureau</div>
+            <div class="experience-role">Intern / Editorial</div>
+          </div>
+
+          <div class="experience-content">
+            <h3>다양한 이해관계자와의 커뮤니케이션</h3>
+            <p>
+              국내 주요 이슈를 해외 독자 관점에서 정리하고
+              영문 콘텐츠 제작 및 취재를 지원했습니다.
+              복잡한 정보를 빠르게 구조화하고 정확하게 전달하는
+              역량을 키웠습니다.
+            </p>
+
+            <div class="tag-wrap">
+              <span class="tag">Communication</span>
+              <span class="tag">Research</span>
+              <span class="tag">Global</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="experience-item fade-up">
+          <div class="experience-date">2025</div>
+
+          <div>
+            <div class="experience-company">University of Edinburgh</div>
+            <div class="experience-role">Team Leader / Project</div>
+          </div>
+
+          <div class="experience-content">
+            <h3>팀을 조율하고 결과물을 완성하는 경험</h3>
+            <p>
+              사회적 약자의 이동권을 주제로 한 영상 프로젝트에서
+              팀 리더를 맡았습니다. 팀원들의 의견을 조율하고
+              AI를 활용해 자료를 조사한 뒤 현장 인터뷰를 통해
+              내용을 검증했습니다.
+            </p>
+
+            <div class="tag-wrap">
+              <span class="tag">Leadership</span>
+              <span class="tag">AI</span>
+              <span class="tag">Teamwork</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="experience-item fade-up">
+          <div class="experience-date">2024</div>
+
+          <div>
+            <div class="experience-company">UBC</div>
+            <div class="experience-role">Exchange Student</div>
+          </div>
+
+          <div class="experience-content">
+            <h3>다양한 문화적 배경을 가진 사람들과 협업</h3>
+            <p>
+              다양한 국적의 학생들과 수업 및 활동에 참여하며
+              서로 다른 관점과 커뮤니케이션 방식을 경험했습니다.
+              문화적 차이를 이해하고 상대방의 관점에서
+              소통하는 역량을 키웠습니다.
+            </p>
+
+            <div class="tag-wrap">
+              <span class="tag">Global Mindset</span>
+              <span class="tag">Collaboration</span>
+              <span class="tag">Adaptability</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="experience-item fade-up">
+          <div class="experience-date">2021–2022</div>
+
+          <div>
+            <div class="experience-company">이화여대 인문과학대학</div>
+            <div class="experience-role">학생회 기획국</div>
+          </div>
+
+          <div class="experience-content">
+            <h3>행사 기획과 구성원 커뮤니케이션</h3>
+            <p>
+              학생회 기획국장으로 활동하며 구성원과의 의견 조율,
+              행사 기획 및 운영 등 조직 내 다양한 이해관계자와
+              협업하는 경험을 쌓았습니다.
+            </p>
+
+            <div class="tag-wrap">
+              <span class="tag">Planning</span>
+              <span class="tag">Coordination</span>
+              <span class="tag">Communication</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+      <div class="section-header">
+        <div class="section-number">03 / PROJECTS</div>
+        <h2 class="section-title">
+          What I can<br>
+          <em>bring to HR.</em>
+        </h2>
+      </div>
+
+      <div class="projects">
+
+        <article class="project fade-up">
+          <div class="project-number">PROJECT 01</div>
+
+          <h3>People Management</h3>
+
+          <p>
+            학회 인사부장 경험을 통해 구성원의 참여와
+            조직 내 커뮤니케이션을 관리했습니다.
+            구성원을 단순한 인원이 아닌 조직의 핵심으로
+            바라보는 관점을 배웠습니다.
+          </p>
+
+          <div class="project-keyword">
+            PEOPLE · ORGANIZATION · CULTURE
+          </div>
+        </article>
+
+
+        <article class="project fade-up">
+          <div class="project-number">PROJECT 02</div>
+
+          <h3>Data & Accuracy</h3>
+
+          <p>
+            수시관리조교로서 출결 및 벌점 데이터를 관리하며
+            반복적이고 정확성이 중요한 업무를 수행했습니다.
+            작은 오류가 전체 관리에 영향을 줄 수 있다는 점을
+            이해하고 꼼꼼하게 데이터를 관리했습니다.
+          </p>
+
+          <div class="project-keyword">
+            DATA · ACCURACY · ADMINISTRATION
+          </div>
+        </article>
+
+
+        <article class="project fade-up">
+          <div class="project-number">PROJECT 03</div>
+
+          <h3>Communication</h3>
+
+          <p>
+            CNN 및 Korea Herald에서 다양한 자료를 조사하고
+            복잡한 내용을 구조화해 전달했습니다.
+            상대방이 무엇을 필요로 하는지 먼저 파악하고
+            그에 맞게 정보를 전달하는 역량을 갖추었습니다.
+          </p>
+
+          <div class="project-keyword">
+            COMMUNICATION · RESEARCH · CONTENT
+          </div>
+        </article>
+
+
+        <article class="project fade-up">
+          <div class="project-number">PROJECT 04</div>
+
+          <h3>AI × HR</h3>
+
+          <p>
+            Edinburgh 프로젝트에서 생성형 AI를 활용해
+            정책과 사례를 조사하고, 결과를 현장 인터뷰와
+            비교·검증했습니다. AI를 단순히 사용하는 것이 아니라
+            업무 효율과 정확성을 높이는 도구로 활용합니다.
+          </p>
+
+          <div class="project-keyword">
+            AI · EFFICIENCY · VALIDATION
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+      <div class="section-header">
+        <div class="section-number">04 / SKILLS</div>
+        <h2 class="section-title">
+          My working<br>
+          <em>skills.</em>
+        </h2>
+      </div>
+
+      <div class="skills-layout">
+
+        <div class="skill-intro fade-up">
+          저는 사람을 이해하는 <span>관찰력</span>과
+          정보를 정리하는 <span>구조화 능력</span>을 바탕으로
+          HR 업무를 수행합니다.
+        </div>
+
+        <div class="skill-list">
+
+          <div class="skill">
+            <div class="skill-top">
+              <span class="skill-name">People Communication</span>
+              <span class="skill-score">90%</span>
+            </div>
+            <div class="bar">
+              <span data-width="90%"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span class="skill-name">Organization & Coordination</span>
+              <span class="skill-score">88%</span>
+            </div>
+            <div class="bar">
+              <span data-width="88%"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span class="skill-name">Data Management</span>
+              <span class="skill-score">85%</span>
+            </div>
+            <div class="bar">
+              <span data-width="85%"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span class="skill-name">Research & Analysis</span>
+              <span class="skill-score">92%</span>
+            </div>
+            <div class="bar">
+              <span data-width="92%"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span class="skill-name">English Communication</span>
+              <span class="skill-score">95%</span>
+            </div>
+            <div class="bar">
+              <span data-width="95%"></span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span class="skill-name">AI 활용</span>
+              <span class="skill-score">85%</span>
+            </div>
+            <div class="bar">
+              <span data-width="85%"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- VALUES -->
+    <section class="values">
+
+      <div class="section-header">
+        <div class="section-number">05 / VALUES</div>
+        <h2 class="section-title">
+          How I think<br>
+          <em>about people.</em>
+        </h2>
+      </div>
+
+      <div class="value-grid">
+
+        <div class="value fade-up">
+          <div class="value-num">01</div>
+          <h3>People <span>first.</span></h3>
+          <p>
+            제도보다 먼저 사람을 생각합니다.
+            같은 제도라도 구성원이 어떻게 경험하는지에 따라
+            조직에 미치는 영향은 달라진다고 믿습니다.
+          </p>
+        </div>
+
+        <div class="value fade-up">
+          <div class="value-num">02</div>
+          <h3>Details <span>matter.</span></h3>
+          <p>
+            HR에서는 작은 데이터 하나, 한 번의 커뮤니케이션도
+            중요하다고 생각합니다. 반복되는 업무일수록
+            정확성과 책임감을 가지고 처리합니다.
+          </p>
+        </div>
+
+        <div class="value fade-up">
+          <div class="value-num">03</div>
+          <h3>Always <span>learn.</span></h3>
+          <p>
+            모든 경험에서 배움을 찾습니다.
+            잘된 결과뿐 아니라 아쉬웠던 과정에서도
+            다음에 더 나은 방법을 발견합니다.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section>
+
+      <div class="section-header">
+        <div class="section-number">06 / BACKGROUND</div>
+        <h2 class="section-title">
+          Background<br>
+          <em>& perspective.</em>
+        </h2>
+      </div>
+
+      <div class="education">
+
+        <div class="edu-card fade-up">
+          <div class="edu-year">2021 — 2026</div>
+          <h3>Ewha Womans University</h3>
+          <p>History & Sociology</p>
+        </div>
+
+        <div class="edu-card fade-up">
+          <div class="edu-year">2024</div>
+          <h3>University of British Columbia</h3>
+          <p>Exchange Program</p>
+        </div>
+
+        <div class="edu-card fade-up">
+          <div class="edu-year">2025</div>
+          <h3>University of Edinburgh</h3>
+          <p>English Language Program</p>
+        </div>
+
+        <div class="edu-card fade-up">
+          <div class="edu-year">ENGLISH</div>
+          <h3>TOEIC 975</h3>
+          <p>Advanced English Communication</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+
+      <div class="contact-label">Let's work together</div>
+
+      <h2>
+        Let's build a<br>
+        better <em>employee experience.</em>
+      </h2>
+
+      <div class="contact-info">
+        <a class="contact-link" href="mailto:your@email.com">
+          your@email.com
+        </a>
+
+        <a class="contact-link" href="#">
+          LinkedIn ↗
+        </a>
+
+        <a class="contact-link" href="#top">
+          Back to top ↑
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <span>© 2026 SOOJIN LEE.</span>
+    <span>HR PORTFOLIO</span>
+  </footer>
+
+
+  <script>
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+
+      if (navLinks.classList.contains("active")) {
+        menuBtn.textContent = "×";
+      } else {
+        menuBtn.textContent = "☰";
+      }
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+
+    /* =========================
+       SCROLL FADE-UP
+    ========================= */
+
+    const fadeElements = document.querySelectorAll(".fade-up");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    fadeElements.forEach(element => {
+      observer.observe(element);
+    });
+
+
+    /* =========================
+       SKILL BARS
+    ========================= */
+
+    const skillBars = document.querySelectorAll(".bar span");
+
+    const skillObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const width = entry.target.dataset.width;
+            entry.target.style.width = width;
+            skillObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.4
+      }
+    );
+
+    skillBars.forEach(bar => {
+      skillObserver.observe(bar);
+    });
+
+
+    /* =========================
+       NAV COLOR ON SCROLL
+    ========================= */
+
+    const nav = document.querySelector("nav");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 50) {
+        nav.style.boxShadow = "0 5px 25px rgba(0,0,0,0.04)";
+      } else {
+        nav.style.boxShadow = "none";
+      }
+
+    });
+
+
+    /* =========================
+       HERO INITIAL ANIMATION
+    ========================= */
+
+    window.addEventListener("load", () => {
+
+      const heroElements = document.querySelectorAll(".hero .fade-up");
+
+      heroElements.forEach((element, index) => {
+
+        setTimeout(() => {
+          element.classList.add("visible");
+        }, index * 180);
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
