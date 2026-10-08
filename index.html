@@ -80,7 +80,7 @@
 
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 30px;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: .04em;
@@ -207,10 +207,6 @@
     section {
       padding: 130px 6vw;
     }
-
-    /*
-      모든 SECTION TITLE을 동일한 스타일로 통일
-    */
 
     .section-header {
       display: grid;
@@ -426,58 +422,82 @@
 
 
     /* =========================
-       PROJECTS
+       HR FOCUS
     ========================= */
 
-    .projects {
+    .focus-grid {
       display: grid;
-      grid-template-columns: repeat(2,1fr);
+      grid-template-columns: repeat(3, 1fr);
 
-      gap: 18px;
+      gap: 1px;
+
+      background: var(--line);
+
+      border: 1px solid var(--line);
     }
 
-    .project {
-      position: relative;
+    .focus-card {
+      min-height: 390px;
 
-      min-height: 330px;
-
-      padding: 40px;
+      padding: 38px;
 
       background: white;
 
-      border: 1px solid transparent;
-
       transition:
         transform .25s ease,
-        border .25s ease;
+        background .25s ease,
+        color .25s ease;
     }
 
-    .project:hover {
+    .focus-card:hover {
+      background: var(--accent);
+      color: white;
+
       transform: translateY(-5px);
-
-      border-color: var(--black);
     }
 
-    .project-number {
+    .focus-number {
       color: var(--accent);
 
       font-size: 11px;
       font-weight: 700;
 
-      margin-bottom: 55px;
+      margin-bottom: 65px;
     }
 
-    .project h3 {
+    .focus-card:hover .focus-number {
+      color: rgba(255,255,255,.65);
+    }
+
+    .focus-card h3 {
+      max-width: 280px;
+
       font-size: 28px;
+      line-height: 1.1;
 
       letter-spacing: -.05em;
 
-      margin-bottom: 13px;
+      margin-bottom: 22px;
     }
 
-    .project p {
-      max-width: 500px;
+    .focus-card h3 span {
+      display: block;
 
+      margin-top: 5px;
+
+      color: #777;
+
+      font-size: 12px;
+      font-weight: 500;
+
+      letter-spacing: 0;
+    }
+
+    .focus-card:hover h3 span {
+      color: rgba(255,255,255,.7);
+    }
+
+    .focus-card p {
       color: #666;
 
       font-size: 13px;
@@ -486,16 +506,89 @@
       word-break: keep-all;
     }
 
-    .project-keyword {
-      position: absolute;
+    .focus-card:hover p {
+      color: rgba(255,255,255,.8);
+    }
 
-      bottom: 35px;
-      left: 40px;
+    .focus-experience {
+      margin-top: 28px;
 
-      color: #aaa;
+      padding-top: 18px;
+
+      border-top: 1px solid #e5e5e5;
+
+      color: #555;
+
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .focus-card:hover .focus-experience {
+      border-color: rgba(255,255,255,.25);
+      color: rgba(255,255,255,.75);
+    }
+
+
+    /* =========================
+       HR CASES / PROJECTS
+    ========================= */
+
+    .cases {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .case {
+      display: grid;
+      grid-template-columns: 20% 30% 1fr;
+
+      gap: 30px;
+
+      padding: 42px 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .case:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .case-number {
+      color: var(--accent);
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .case-title {
+      font-size: 25px;
+      line-height: 1.15;
+
+      letter-spacing: -.05em;
+    }
+
+    .case-content h4 {
+      font-size: 14px;
+
+      margin-bottom: 10px;
+    }
+
+    .case-content p {
+      color: #666;
+
+      font-size: 13px;
+      line-height: 1.8;
+
+      word-break: keep-all;
+    }
+
+    .case-keyword {
+      margin-top: 15px;
+
+      color: #999;
 
       font-size: 10px;
-      letter-spacing: .08em;
+      letter-spacing: .05em;
     }
 
 
@@ -524,14 +617,9 @@
       color: var(--accent);
     }
 
-    /*
-      기존 퍼센트 바 삭제.
-      모든 역량을 동등한 카드로 표현.
-    */
-
     .skill-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2,1fr);
 
       border-top: 1px solid var(--black);
       border-left: 1px solid var(--line);
@@ -804,7 +892,6 @@
 
       nav {
         height: 62px;
-
         padding: 0 5vw;
       }
 
@@ -899,8 +986,20 @@
 
       .experience-item {
         grid-template-columns: 1fr;
-
         gap: 12px;
+      }
+
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .focus-card {
+        min-height: auto;
+      }
+
+      .case {
+        grid-template-columns: 1fr;
+        gap: 15px;
       }
 
       .projects,
@@ -930,13 +1029,11 @@
 
       .contact-info {
         flex-direction: column;
-
         gap: 18px;
       }
 
       footer {
         flex-direction: column;
-
         gap: 10px;
       }
     }
@@ -962,7 +1059,8 @@
 
       <a href="#about">ABOUT</a>
       <a href="#experience">EXPERIENCE</a>
-      <a href="#projects">PROJECTS</a>
+      <a href="#focus">HR FOCUS</a>
+      <a href="#cases">CASES</a>
       <a href="#skills">SKILLS</a>
       <a href="#background">BACKGROUND</a>
       <a href="#contact">CONTACT</a>
@@ -1075,7 +1173,7 @@
             이화국제법학회에서 인사부장으로 활동하며
             구성원 관리와 내부 커뮤니케이션을 경험했고,
             이화여대 입학처 수시관리조교로서
-            출결 및 구성원 데이터를 정확하게 관리했습니다.
+            출결과 벌점 등 구성원 데이터를 정확하게 관리했습니다.
           </p>
 
           <p>
@@ -1167,7 +1265,7 @@
 
         <h2 class="section-title">
           Experiences<br>
-          <em>through a HR lens.</em>
+          <em>that shaped my HR perspective.</em>
         </h2>
 
       </div>
@@ -1176,7 +1274,7 @@
       <div class="experience-list">
 
 
-        <!-- HR -->
+        <!-- 01 -->
         <div class="experience-item fade-up">
 
           <div class="experience-date">
@@ -1198,19 +1296,18 @@
           <div class="experience-content">
 
             <h3>
-              구성원 관리와 조직 운영
+              구성원 관리와 조직문화
             </h3>
 
             <p>
-              학회 인사부장으로서 구성원 관리와
-              내부 운영을 담당했습니다.
-              구성원의 참여를 독려하고 조직 내 커뮤니케이션을
-              조율하며 구성원 중심의 조직 운영을 경험했습니다.
+              학회 인사부장으로서 구성원 관리와 내부 운영을 담당했습니다.
+              구성원의 참여를 독려하고 구성원 간 커뮤니케이션을 조율하며
+              조직의 분위기와 구성원 경험을 함께 고려하는 운영을 경험했습니다.
             </p>
 
             <div class="tag-wrap">
+              <span class="tag">People & Culture</span>
               <span class="tag">People Management</span>
-              <span class="tag">Organization</span>
               <span class="tag">Communication</span>
             </div>
 
@@ -1220,7 +1317,7 @@
 
 
 
-        <!-- 입학처 수시관리조교 -->
+        <!-- 02 -->
         <div class="experience-item fade-up">
 
           <div class="experience-date">
@@ -1242,19 +1339,18 @@
           <div class="experience-content">
 
             <h3>
-              정확성이 중요한 운영 업무
+              정확성이 중요한 인사 운영
             </h3>
 
             <p>
               수시 전형 관련 행정 업무와 출결 및 벌점 관리 등
               반복적이고 정확성이 중요한 업무를 수행했습니다.
-              구성원 데이터를 꼼꼼하게 관리하고
-              업무 과정에서 발생하는 오류를 최소화했습니다.
+              구성원 데이터를 꼼꼼하게 관리하며 안정적인 운영을 지원했습니다.
             </p>
 
             <div class="tag-wrap">
+              <span class="tag">HR Operations</span>
               <span class="tag">Data Management</span>
-              <span class="tag">Administration</span>
               <span class="tag">Accuracy</span>
             </div>
 
@@ -1264,7 +1360,7 @@
 
 
 
-        <!-- 입학처 서포터즈 -->
+        <!-- 03 -->
         <div class="experience-item fade-up">
 
           <div class="experience-date">
@@ -1286,19 +1382,20 @@
           <div class="experience-content">
 
             <h3>
-              구성원과 조직을 연결하는 커뮤니케이션
+              지원자 관점의 커뮤니케이션
             </h3>
 
             <p>
               입학 관련 콘텐츠 제작과 홍보 활동을 수행하며
-              다양한 대상의 니즈를 파악하고 정보를
-              이해하기 쉽게 전달하는 경험을 쌓았습니다.
+              지원자가 필요로 하는 정보를 파악하고 이해하기 쉽게
+              전달했습니다. 대상자의 관점에서 경험을 바라보는
+              커뮤니케이션 역량을 키웠습니다.
             </p>
 
             <div class="tag-wrap">
+              <span class="tag">Talent Experience</span>
               <span class="tag">Communication</span>
               <span class="tag">Content</span>
-              <span class="tag">Stakeholder</span>
             </div>
 
           </div>
@@ -1307,7 +1404,7 @@
 
 
 
-        <!-- 기획국장 -->
+        <!-- 04 -->
         <div class="experience-item fade-up">
 
           <div class="experience-date">
@@ -1329,18 +1426,18 @@
           <div class="experience-content">
 
             <h3>
-              조직 구성원과 함께 만드는 프로그램
+              구성원 의견을 반영한 조직 운영
             </h3>
 
             <p>
-              기획국장으로서 학생회 행사와 프로그램을 기획하고
+              학생회 기획국장으로서 행사와 프로그램을 기획하고
               구성원들의 의견을 조율했습니다.
-              여러 이해관계자의 의견을 수렴하고
-              하나의 결과물로 만들어가는 과정을 경험했습니다.
+              다양한 이해관계자의 의견을 수렴하고 실제 프로그램에
+              반영하며 조직 구성원의 참여를 이끌었습니다.
             </p>
 
             <div class="tag-wrap">
-              <span class="tag">Leadership</span>
+              <span class="tag">People & Culture</span>
               <span class="tag">Planning</span>
               <span class="tag">Coordination</span>
             </div>
@@ -1351,7 +1448,7 @@
 
 
 
-        <!-- CNN -->
+        <!-- 05 -->
         <div class="experience-item fade-up">
 
           <div class="experience-date">
@@ -1373,108 +1470,20 @@
           <div class="experience-content">
 
             <h3>
-              다양한 이해관계자와의 커뮤니케이션
+              글로벌 환경에서의 커뮤니케이션
             </h3>
 
             <p>
               국내 주요 이슈를 해외 독자 관점에서 정리하고
               영문 콘텐츠 제작 및 취재를 지원했습니다.
-              복잡한 정보를 빠르게 구조화하고
-              정확하게 전달하는 역량을 키웠습니다.
+              다양한 이해관계자와 소통하며 필요한 정보를 빠르게
+              파악하고 구조화하는 역량을 키웠습니다.
             </p>
 
             <div class="tag-wrap">
-              <span class="tag">Communication</span>
+              <span class="tag">Global Communication</span>
               <span class="tag">Research</span>
-              <span class="tag">Global</span>
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- Edinburgh -->
-        <div class="experience-item fade-up">
-
-          <div class="experience-date">
-            2025
-          </div>
-
-          <div>
-
-            <div class="experience-company">
-              University of Edinburgh
-            </div>
-
-            <div class="experience-role">
-              Team Leader / Project
-            </div>
-
-          </div>
-
-          <div class="experience-content">
-
-            <h3>
-              팀을 조율하고 결과물을 완성하는 경험
-            </h3>
-
-            <p>
-              사회적 약자의 이동권을 주제로 한 영상 프로젝트에서
-              팀 리더를 맡았습니다. 팀원들의 의견을 조율하고
-              AI를 활용해 자료를 조사한 뒤 현장 인터뷰를 통해
-              내용을 검증했습니다.
-            </p>
-
-            <div class="tag-wrap">
-              <span class="tag">Leadership</span>
-              <span class="tag">AI</span>
-              <span class="tag">Teamwork</span>
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- UBC -->
-        <div class="experience-item fade-up">
-
-          <div class="experience-date">
-            2024
-          </div>
-
-          <div>
-
-            <div class="experience-company">
-              University of British Columbia
-            </div>
-
-            <div class="experience-role">
-              Exchange Student
-            </div>
-
-          </div>
-
-          <div class="experience-content">
-
-            <h3>
-              다양한 문화적 배경을 가진 사람들과 협업
-            </h3>
-
-            <p>
-              다양한 국적의 학생들과 수업 및 활동에 참여하며
-              서로 다른 관점과 커뮤니케이션 방식을 경험했습니다.
-              문화적 차이를 이해하고 상대방의 관점에서
-              소통하는 역량을 키웠습니다.
-            </p>
-
-            <div class="tag-wrap">
-              <span class="tag">Global Mindset</span>
-              <span class="tag">Collaboration</span>
-              <span class="tag">Adaptability</span>
+              <span class="tag">Stakeholder</span>
             </div>
 
           </div>
@@ -1488,126 +1497,272 @@
 
 
     <!-- =========================
-         PROJECTS
+         HR FOCUS
     ========================= -->
 
-    <section id="projects">
+    <section id="focus">
 
       <div class="section-header">
 
         <div class="section-number">
-          03 / PROJECTS
+          03 / HR FOCUS
         </div>
 
         <h2 class="section-title">
-          What I can<br>
-          <em>bring to HR.</em>
+          Three areas<br>
+          <em>where I create value.</em>
         </h2>
 
       </div>
 
 
-      <div class="projects">
+      <div class="focus-grid">
 
 
-        <article class="project fade-up">
+        <!-- AXIS 1 -->
+        <div class="focus-card fade-up">
 
-          <div class="project-number">
-            PROJECT 01
+          <div class="focus-number">
+            01 / TALENT
           </div>
 
           <h3>
-            People Management
+            Talent Acquisition
+            & Onboarding
+
+            <span>
+              인재 영입 및 온보딩
+            </span>
           </h3>
 
           <p>
-            이화국제법학회 인사부장으로 활동하며
-            구성원 관리와 내부 커뮤니케이션을 경험했습니다.
-            구성원의 참여와 조직의 목표를 함께 고려하며
-            조직을 운영하는 관점을 배웠습니다.
+            사람과 조직의 첫 접점에서
+            필요한 정보를 정확하게 전달하고,
+            지원자와 구성원의 입장에서
+            경험을 설계하는 데 관심이 있습니다.
           </p>
 
-          <div class="project-keyword">
-            PEOPLE · ORGANIZATION · CULTURE
+          <div class="focus-experience">
+
+            Related Experience<br>
+
+            입학처 서포터즈 ·
+            지원자 관점의 콘텐츠 및 커뮤니케이션
+
           </div>
 
-        </article>
+        </div>
 
 
 
-        <article class="project fade-up">
+        <!-- AXIS 2 -->
+        <div class="focus-card fade-up">
 
-          <div class="project-number">
-            PROJECT 02
+          <div class="focus-number">
+            02 / OPERATIONS
           </div>
 
           <h3>
-            Data & Accuracy
+            HR Operations
+            & C&B
+
+            <span>
+              인사 운영 및 보상·평가
+            </span>
           </h3>
 
           <p>
-            입학처 수시관리조교로서 출결 및 벌점 관리 등
-            반복적이고 정확성이 중요한 업무를 수행했습니다.
-            작은 오류가 전체 업무에 영향을 줄 수 있다는 점을
-            이해하고 꼼꼼하게 데이터를 관리했습니다.
+            인사 운영에서는 정확성과 안정성이
+            가장 중요한 기반이라고 생각합니다.
+            데이터를 꼼꼼하게 관리하고 반복 업무를
+            체계적으로 수행하는 역량을 갖추고 있습니다.
           </p>
 
-          <div class="project-keyword">
-            DATA · ACCURACY · ADMINISTRATION
+          <div class="focus-experience">
+
+            Related Experience<br>
+
+            입학처 수시관리조교 ·
+            출결 및 벌점 관리 · 데이터 관리
+
           </div>
 
-        </article>
+        </div>
 
 
 
-        <article class="project fade-up">
+        <!-- AXIS 3 -->
+        <div class="focus-card fade-up">
 
-          <div class="project-number">
-            PROJECT 03
+          <div class="focus-number">
+            03 / CULTURE
           </div>
 
           <h3>
-            Communication
+            People
+            & Culture
+
+            <span>
+              조직문화 및 사내 커뮤니케이션
+            </span>
           </h3>
 
           <p>
-            CNN과 Korea Herald에서 다양한 자료를 조사하고
-            복잡한 내용을 구조화해 전달했습니다.
-            상대방이 무엇을 필요로 하는지 먼저 파악하고
-            그에 맞게 정보를 전달하는 역량을 갖추었습니다.
+            조직문화는 구성원이 실제로 경험하는
+            작은 순간에서 만들어진다고 생각합니다.
+            구성원의 의견을 듣고 조직 안에서
+            더 잘 소통하고 협업할 수 있는 환경을 만듭니다.
           </p>
 
-          <div class="project-keyword">
-            COMMUNICATION · RESEARCH · CONTENT
+          <div class="focus-experience">
+
+            Related Experience<br>
+
+            국제법학회 인사부장 ·
+            학생회 기획국장 · 구성원 관리 및 행사 기획
+
           </div>
 
-        </article>
+        </div>
+
+
+      </div>
+
+    </section>
 
 
 
-        <article class="project fade-up">
+    <!-- =========================
+         HR CASES
+    ========================= -->
 
-          <div class="project-number">
-            PROJECT 04
+    <section id="cases">
+
+      <div class="section-header">
+
+        <div class="section-number">
+          04 / HR CASES
+        </div>
+
+        <h2 class="section-title">
+          How my experience<br>
+          <em>translates into HR.</em>
+        </h2>
+
+      </div>
+
+
+      <div class="cases">
+
+
+        <!-- CASE 01 -->
+        <div class="case fade-up">
+
+          <div class="case-number">
+            CASE 01
           </div>
 
-          <h3>
-            AI × Work
-          </h3>
-
-          <p>
-            Edinburgh 프로젝트에서 생성형 AI를 활용해
-            정책과 사례를 조사하고 결과를 현장 인터뷰와
-            비교·검증했습니다.
-            AI를 업무 효율과 결과물의 완성도를 높이는
-            도구로 활용합니다.
-          </p>
-
-          <div class="project-keyword">
-            AI · EFFICIENCY · VALIDATION
+          <div class="case-title">
+            Understanding<br>
+            the candidate
           </div>
 
-        </article>
+          <div class="case-content">
+
+            <h4>
+              Talent Acquisition & Onboarding
+            </h4>
+
+            <p>
+              입학처 서포터즈 활동을 통해 정보를 제공하는 사람의
+              시선이 아니라 정보를 필요로 하는 지원자의 시선에서
+              콘텐츠를 바라보았습니다. 무엇을 알고 싶어 하는지,
+              어떤 정보가 이해하기 어려운지를 고민하며
+              대상자 중심의 커뮤니케이션을 경험했습니다.
+            </p>
+
+            <div class="case-keyword">
+              CANDIDATE EXPERIENCE · COMMUNICATION · EMPATHY
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- CASE 02 -->
+        <div class="case fade-up">
+
+          <div class="case-number">
+            CASE 02
+          </div>
+
+          <div class="case-title">
+            Making operations<br>
+            reliable
+          </div>
+
+          <div class="case-content">
+
+            <h4>
+              HR Operations & C&B
+            </h4>
+
+            <p>
+              입학처 수시관리조교로 근무하며 출결과 벌점 등
+              구성원 관련 데이터를 관리했습니다. 반복적인 업무라도
+              작은 오류가 전체 운영에 영향을 줄 수 있다는 점을
+              인식하고 정확성을 우선하며 업무를 수행했습니다.
+              이러한 경험은 향후 인사 데이터와 운영 업무를
+              안정적으로 관리하는 기반이 되었습니다.
+            </p>
+
+            <div class="case-keyword">
+              ACCURACY · DATA · PROCESS · OPERATIONS
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- CASE 03 -->
+        <div class="case fade-up">
+
+          <div class="case-number">
+            CASE 03
+          </div>
+
+          <div class="case-title">
+            Building a culture<br>
+            people participate in
+          </div>
+
+          <div class="case-content">
+
+            <h4>
+              People & Culture
+            </h4>
+
+            <p>
+              국제법학회 인사부장과 학생회 기획국장으로 활동하며
+              구성원 관리와 행사 기획을 경험했습니다. 단순히
+              프로그램을 만드는 데 그치지 않고 구성원의 의견과
+              참여를 고려하며 조직을 운영했습니다. 사람들의
+              반응을 살피고 필요한 부분을 조정하는 과정에서
+              구성원 중심의 조직문화에 대해 배웠습니다.
+            </p>
+
+            <div class="case-keyword">
+              PEOPLE · CULTURE · ENGAGEMENT · FEEDBACK
+            </div>
+
+          </div>
+
+        </div>
+
 
       </div>
 
@@ -1624,7 +1779,7 @@
       <div class="section-header">
 
         <div class="section-number">
-          04 / SKILLS
+          05 / SKILLS
         </div>
 
         <h2 class="section-title">
@@ -1637,11 +1792,12 @@
 
       <div class="skills-layout">
 
+
         <div class="skill-intro fade-up">
 
           사람을 이해하는 <span>관찰력</span>과
           정보를 정리하는 <span>구조화 능력</span>을 바탕으로
-          다양한 사람과 조직을 연결합니다.
+          사람과 조직 사이의 문제를 해결합니다.
 
         </div>
 
@@ -1768,7 +1924,7 @@
       <div class="section-header">
 
         <div class="section-number">
-          05 / VALUES
+          06 / VALUES
         </div>
 
         <h2 class="section-title">
@@ -1854,7 +2010,7 @@
       <div class="section-header">
 
         <div class="section-number">
-          06 / BACKGROUND
+          07 / BACKGROUND
         </div>
 
         <h2 class="section-title">
@@ -1930,7 +2086,7 @@
           </h3>
 
           <p>
-            English / International Studies
+            International Studies
           </p>
 
         </div>
@@ -2005,9 +2161,7 @@
 
   <script>
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
+    /* MOBILE MENU */
 
     const menuBtn =
       document.querySelector(".menu-btn");
@@ -2020,13 +2174,10 @@
 
       navLinks.classList.toggle("active");
 
-      if (
+      menuBtn.textContent =
         navLinks.classList.contains("active")
-      ) {
-        menuBtn.textContent = "×";
-      } else {
-        menuBtn.textContent = "☰";
-      }
+          ? "×"
+          : "☰";
 
     });
 
@@ -2047,9 +2198,7 @@
 
 
 
-    /* =========================
-       SCROLL ANIMATION
-    ========================= */
+    /* SCROLL ANIMATION */
 
     const fadeElements =
       document.querySelectorAll(".fade-up");
@@ -2091,9 +2240,7 @@
 
 
 
-    /* =========================
-       NAV SHADOW
-    ========================= */
+    /* NAV SHADOW */
 
     const nav =
       document.querySelector("nav");
@@ -2103,9 +2250,7 @@
       "scroll",
       () => {
 
-        if (
-          window.scrollY > 50
-        ) {
+        if (window.scrollY > 50) {
 
           nav.style.boxShadow =
             "0 5px 25px rgba(0,0,0,.04)";
@@ -2122,9 +2267,7 @@
 
 
 
-    /* =========================
-       HERO ANIMATION
-    ========================= */
+    /* HERO ANIMATION */
 
     window.addEventListener(
       "load",
