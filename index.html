@@ -606,129 +606,70 @@
 
 
     /* =========================
-       OA + AI
+       SKILLS
     ========================= */
 
-    .digital-section {
-      margin-top: 80px;
-    }
-
-    .digital-header {
-      margin-bottom: 35px;
-    }
-
-    .digital-label {
-      color: var(--accent);
-
-      font-size: 11px;
-
-      font-weight: 700;
-
-      letter-spacing: .1em;
-
-      margin-bottom: 10px;
-    }
-
-    .digital-header h3 {
-      font-size: 30px;
-
-      letter-spacing: -.05em;
-    }
-
-    .digital-grid {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 18px;
-    }
-
-    .digital-card {
-      padding: 35px;
-
-      background: white;
-
-      border: 1px solid transparent;
-
-      transition:
-        border .2s ease,
-        transform .2s ease;
-    }
-
-    .digital-card:hover {
-      border-color: var(--black);
-
-      transform: translateY(-4px);
-    }
-
-    .digital-card-top {
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: flex-start;
-
-      margin-bottom: 35px;
-    }
-
-    .digital-icon {
-      width: 42px;
-
-      height: 42px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background: var(--accent-light);
-
-      color: var(--accent);
-
-      font-size: 13px;
-
-      font-weight: 800;
-    }
-
-    .digital-card h4 {
-      font-size: 22px;
-
-      letter-spacing: -.04em;
-    }
-
-    .digital-card p {
+    .skills-intro {
+      max-width: 760px;
       color: #666;
-
-      font-size: 13px;
-
-      line-height: 1.8;
-
+      font-size: 14px;
+      line-height: 1.85;
+      margin-bottom: 55px;
       word-break: keep-all;
     }
 
-    .digital-tags {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 6px;
-
-      margin-top: 20px;
+    .skills-list {
+      border-top: 1px solid var(--black);
     }
 
-    .digital-tag {
-      padding: 6px 10px;
+    .skill-row {
+      display: grid;
+      grid-template-columns: 25% 1fr;
+      gap: 35px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
 
-      background: #f4f4f2;
+    .skill-category {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
 
-      color: #666;
+    .skill-category strong {
+      font-size: 18px;
+      letter-spacing: -.04em;
+    }
 
-      border-radius: 100px;
+    .skill-category span {
+      color: #999;
+      font-size: 11px;
+    }
 
-      font-size: 10px;
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-content: start;
+    }
+
+    .skill-item {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 14px;
+      border: 1px solid #deded9;
+      border-radius: 4px;
+      background: white;
+      color: #444;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all .2s ease;
+    }
+
+    .skill-item:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
     }
 
 
@@ -839,46 +780,6 @@
       color: #666;
 
       font-size: 12px;
-    }
-
-    .global-note {
-      grid-column: 1 / -1;
-
-      padding: 35px;
-
-      background: var(--accent);
-
-      color: white;
-    }
-
-    .global-note-label {
-      font-size: 10px;
-
-      letter-spacing: .1em;
-
-      opacity: .7;
-
-      margin-bottom: 18px;
-    }
-
-    .global-note h3 {
-      font-size: 28px;
-
-      letter-spacing: -.05em;
-
-      margin-bottom: 12px;
-    }
-
-    .global-note p {
-      max-width: 800px;
-
-      color: rgba(255,255,255,.8);
-
-      font-size: 13px;
-
-      line-height: 1.8;
-
-      word-break: keep-all;
     }
 
 
@@ -1108,8 +1009,14 @@
         min-height: auto;
       }
 
-      .digital-grid {
+      .skill-row {
         grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .skill-item {
+        font-size: 11px;
+        padding: 8px 11px;
       }
 
       .value-grid {
@@ -1122,10 +1029,6 @@
 
       .education {
         grid-template-columns: 1fr;
-      }
-
-      .global-note {
-        grid-column: auto;
       }
 
       .contact {
@@ -1180,6 +1083,10 @@
 
       <a href="#skills">
         SKILLS
+      </a>
+
+      <a href="#perspective">
+        PERSPECTIVE & VALUES
       </a>
 
       <a href="#background">
@@ -1596,6 +1503,68 @@
 
 
 
+        <!-- 2024 UBC Networking Program -->
+        <div class="experience-item fade-up">
+
+          <div class="experience-date">
+            2024
+          </div>
+
+
+          <div>
+
+            <div class="experience-company">
+              University of British Columbia
+            </div>
+
+            <div class="experience-role">
+              Exchange Student / Networking Program Planning Team
+            </div>
+
+          </div>
+
+
+          <div class="experience-content">
+
+            <h3>
+              다국적 교환학생 대상 네트워킹 프로그램 기획
+            </h3>
+
+            <p>
+
+              UBC 교환학생 시절 다양한 국적의 학생들이 서로 교류하고
+
+              새로운 환경에 적응할 수 있도록 네트워킹 프로그램 기획에 참여했습니다.
+
+              7명의 기획팀과 함께 50명 이상의 학생이 참여하는 행사를 준비하며
+
+              참여자 간 자연스러운 소통과 교류를 지원했습니다.
+
+            </p>
+
+
+            <div class="tag-wrap">
+
+              <span class="tag">
+                Event Planning
+              </span>
+
+              <span class="tag">
+                Global Communication
+              </span>
+
+              <span class="tag">
+                Collaboration
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
         <!-- 2023 -->
         <div class="experience-item fade-up">
 
@@ -1648,6 +1617,68 @@
 
               <span class="tag">
                 Accuracy
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 2022-2023 Humanities Career Reporter -->
+        <div class="experience-item fade-up">
+
+          <div class="experience-date">
+            2022–2023
+          </div>
+
+
+          <div>
+
+            <div class="experience-company">
+              이화여대 인문커리어
+            </div>
+
+            <div class="experience-role">
+              인문커리어 리포터
+            </div>
+
+          </div>
+
+
+          <div class="experience-content">
+
+            <h3>
+              진로 정보 콘텐츠 기획 및 제작
+            </h3>
+
+            <p>
+
+              인문대 학생들에게 필요한 진로·취업 정보를 전달하기 위해
+
+              관련 정보를 조사하고 콘텐츠를 기획·제작했습니다.
+
+              학생들의 관심사와 정보 수요를 고려해 내용을 구성하며
+
+              대상자 관점에서 정보를 전달하는 경험을 쌓았습니다.
+
+            </p>
+
+
+            <div class="tag-wrap">
+
+              <span class="tag">
+                Content Planning
+              </span>
+
+              <span class="tag">
+                Research
+              </span>
+
+              <span class="tag">
+                Communication
               </span>
 
             </div>
@@ -1986,141 +2017,133 @@
 
       </div>
 
+    </section>
 
 
-      <!-- OA / AI -->
 
-      <div class="digital-section">
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+      <div class="section-header">
+
+        <div class="section-number">
+          04 / SKILLS
+        </div>
+
+        <h2 class="section-title">
+
+          Tools for<br>
+
+          <em>better work.</em>
+
+        </h2>
+
+      </div>
 
 
-        <div class="digital-header">
+      <p class="skills-intro fade-up">
 
-          <div class="digital-label">
-            DIGITAL WORK
+        문서 작성과 데이터 관리부터 콘텐츠 제작, 웹사이트 구현까지
+
+        다양한 업무 환경에 필요한 도구를 활용할 수 있습니다.
+
+        각 도구의 특성에 맞춰 정보를 정리하고, 업무 목적에 맞는 결과물을 만드는 데 활용합니다.
+
+      </p>
+
+
+      <div class="skills-list">
+
+
+        <div class="skill-row fade-up">
+
+          <div class="skill-category">
+            <strong>OA</strong>
+            <span>문서 작성 · 데이터 관리 · 업무 지원</span>
           </div>
 
-          <h3>
-            OA & AI
-          </h3>
+          <div class="skill-items">
+
+            <span class="skill-item">Microsoft Word</span>
+            <span class="skill-item">Microsoft Excel</span>
+            <span class="skill-item">Microsoft PowerPoint</span>
+            <span class="skill-item">Microsoft Outlook</span>
+            <span class="skill-item">아래아 한글</span>
+            <span class="skill-item">웹 브라우저</span>
+
+          </div>
 
         </div>
 
 
-        <div class="digital-grid">
 
+        <div class="skill-row fade-up">
 
-          <!-- OA -->
-
-          <div class="digital-card fade-up">
-
-            <div class="digital-card-top">
-
-              <h4>
-                OA & Data
-              </h4>
-
-              <div class="digital-icon">
-                OA
-              </div>
-
-            </div>
-
-
-            <p>
-
-              문서 작성, 자료 정리, 데이터 관리 등
-
-              HR 업무의 기본이 되는 OA 활용 역량을 바탕으로
-
-              반복적인 업무를 정확하고 효율적으로 처리합니다.
-
-              정보를 체계적으로 정리하고 필요한 내용을
-
-              빠르게 찾을 수 있도록 구조화하는 데 강점이 있습니다.
-
-            </p>
-
-
-            <div class="digital-tags">
-
-              <span class="digital-tag">
-                Google Workspace
-              </span>
-
-              <span class="digital-tag">
-                Word
-              </span>
-
-              <span class="digital-tag">
-                Excel
-              </span>
-
-              <span class="digital-tag">
-                PowerPoint
-              </span>
-
-            </div>
-
+          <div class="skill-category">
+            <strong>Web Development</strong>
+            <span>웹사이트 구현 · 관리</span>
           </div>
 
+          <div class="skill-items">
 
-
-          <!-- AI -->
-
-          <div class="digital-card fade-up">
-
-            <div class="digital-card-top">
-
-              <h4>
-                AI 활용
-              </h4>
-
-              <div class="digital-icon">
-                AI
-              </div>
-
-            </div>
-
-
-            <p>
-
-              생성형 AI를 단순 검색 도구로 사용하지 않고
-
-              리서치와 아이디어 도출, 정보 비교에 활용합니다.
-
-              Edinburgh 프로젝트에서는 AI를 활용해
-
-              영국의 이동권 정책과 사례를 조사한 뒤
-
-              현장 인터뷰를 통해 결과를 검증했습니다.
-
-            </p>
-
-
-            <div class="digital-tags">
-
-              <span class="digital-tag">
-                ChatGPT
-              </span>
-
-              <span class="digital-tag">
-                Gemini
-              </span>
-
-              <span class="digital-tag">
-                Claude
-              </span>
-
-              <span class="digital-tag">
-                Perplexity
-              </span>
-
-            </div>
+            <span class="skill-item">JavaScript</span>
+            <span class="skill-item">HTML</span>
+            <span class="skill-item">CSS</span>
+            <span class="skill-item">GitHub</span>
 
           </div>
-
 
         </div>
+
+
+
+        <div class="skill-row fade-up">
+
+          <div class="skill-category">
+            <strong>Graphic & Video</strong>
+            <span>그래픽 디자인 · 영상 제작</span>
+          </div>
+
+          <div class="skill-items">
+
+            <span class="skill-item">Adobe Photoshop</span>
+            <span class="skill-item">Canva</span>
+            <span class="skill-item">MiriCanvas</span>
+            <span class="skill-item">Mangoboard</span>
+            <span class="skill-item">Adobe Premiere Pro</span>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="skill-row fade-up">
+
+          <div class="skill-category">
+            <strong>Collaboration & Data</strong>
+            <span>협업 · 프로젝트 관리 · 데이터 분석</span>
+          </div>
+
+          <div class="skill-items">
+
+            <span class="skill-item">Google Sheets</span>
+            <span class="skill-item">Google Docs</span>
+            <span class="skill-item">Google Slides</span>
+            <span class="skill-item">Google Drive</span>
+            <span class="skill-item">Google Forms</span>
+            <span class="skill-item">Google Meet</span>
+            <span class="skill-item">Gmail</span>
+            <span class="skill-item">Notion</span>
+            <span class="skill-item">Data Analytics</span>
+
+          </div>
+
+        </div>
+
 
       </div>
 
@@ -2129,15 +2152,15 @@
 
 
     <!-- =========================
-         VALUES
+         PERSPECTIVE & VALUES
     ========================= -->
 
-    <section class="values">
+    <section class="values" id="perspective">
 
       <div class="section-header">
 
         <div class="section-number">
-          04 / VALUES
+          05 / PERSPECTIVE & VALUES
         </div>
 
         <h2 class="section-title">
@@ -2147,6 +2170,31 @@
           <em>about people.</em>
 
         </h2>
+
+      </div>
+
+
+      <div class="global-note fade-up">
+
+        <div class="global-note-label">
+          GLOBAL PERSPECTIVE
+        </div>
+
+        <h3>
+          Connecting people across perspectives.
+        </h3>
+
+        <p>
+
+          UBC 교환학생과 Edinburgh 프로그램, CNN Seoul Bureau 인턴 경험을 통해
+
+          서로 다른 문화와 관점을 가진 사람들과 협업하고 소통하는 경험을 쌓았습니다.
+
+          이러한 글로벌 커뮤니케이션 역량을 바탕으로 다양한 배경의 구성원이
+
+          함께 일하는 조직을 이해합니다.
+
+        </p>
 
       </div>
 
@@ -2240,14 +2288,12 @@
       <div class="section-header">
 
         <div class="section-number">
-          05 / BACKGROUND
+          06 / BACKGROUND
         </div>
 
         <h2 class="section-title">
 
-          Background<br>
-
-          <em>& perspective.</em>
+          My <em>background.</em>
 
         </h2>
 
@@ -2327,37 +2373,6 @@
 
         </div>
 
-
-
-        <!-- GLOBAL -->
-
-        <div class="global-note fade-up">
-
-          <div class="global-note-label">
-            GLOBAL PERSPECTIVE
-          </div>
-
-          <h3>
-            Connecting people across perspectives.
-          </h3>
-
-          <p>
-
-            UBC 교환학생과 Edinburgh 프로그램,
-
-            CNN Seoul Bureau 인턴 경험을 통해
-
-            서로 다른 문화와 관점을 가진 사람들과
-
-            협업하고 소통하는 경험을 쌓았습니다.
-
-            이러한 글로벌 커뮤니케이션 역량을 바탕으로
-
-            다양한 배경의 구성원이 함께 일하는 조직을 이해합니다.
-
-          </p>
-
-        </div>
 
 
       </div>
